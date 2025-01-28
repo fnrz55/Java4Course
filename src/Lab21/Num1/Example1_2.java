@@ -1,5 +1,7 @@
 package Lab21.Num1;
+
 enum Transport2{CAR, TRUCK, AIRPLANE, TRAIN, BOAT}
+
 public class Example1_2 {
     public static void main(String[] args) {
         Transport2 tp;

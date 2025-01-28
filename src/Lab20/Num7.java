@@ -3,20 +3,20 @@ package Lab20;
 public class Num7 {
 
 	public static void main(String[] args) {
-		System.out.println("РћСЃРЅРѕРІРЅРѕР№ РїРѕС‚РѕРє Р·Р°РїСѓС‰РµРЅ");
+		System.out.println("Основной поток запущен");
 		
-		Num7Cl mt1 = new Num7Cl("Р’С‹СЃРѕРєРёР№ РїСЂРёРѕСЂРёС‚РµС‚");
-		Num7Cl mt2 = new Num7Cl("РќРёР·РєРёР№ РїСЂРёРѕСЂРёС‚РµС‚");
+		Num7Cl mt1 = new Num7Cl("Высокий приоритет");
+		Num7Cl mt2 = new Num7Cl("Низкий приоритет");
 		mt1.thrd.start();
 		mt2.thrd.start();
 		try {
 			mt1.thrd.join();
 			mt2.thrd.join();
 		}catch(InterruptedException exc) {
-			System.out.println("Р“Р»Р°РІРЅС‹Р№ РїРѕС‚РѕРє РїСЂРёРѕСЃС‚Р°РЅРѕРІР»РµРЅ");
+			System.out.println("Главный поток приостановлен");
 		}
-		System.out.println("РџРѕС‚РѕРє СЃ РІС‹СЃРѕРєРёРј РїСЂРёРѕСЂРёС‚РµС‚РѕРј СЃС‡РёС‚Р°РµС‚СЃСЏ " + mt1.count);
-		System.out.println("РџРѕС‚РѕРє СЃ РЅРёР·РєРёРј РїСЂРёРѕСЂРёС‚РµС‚РѕРј СЃС‡РёС‚Р°РµС‚СЃСЏ " + mt2.count);
+		System.out.println("Поток с высоким приоритетом считается " + mt1.count);
+		System.out.println("Поток с низким приоритетом считается " + mt2.count);
 
 	}
 

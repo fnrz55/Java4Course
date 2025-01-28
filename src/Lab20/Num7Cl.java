@@ -7,7 +7,7 @@ Thread thrd;
 static boolean stop = false;
 static String currentName;
 Num7Cl(String name){
-    thrd = new Thread(name);
+    thrd = new Thread(this, name);
     count = 0;
     currentName = name;
 }

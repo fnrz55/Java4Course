@@ -1,62 +1,56 @@
 package Lab21.Num1;
+import java.io.DataInputStream;
 import java.util.Scanner;
 
 public class Example1 {
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+        DataInputStream dis = new DataInputStream(System.in);
+        Transport tp = Transport.CAR;
+        boolean track = false;
         boolean flag = true;
         int cost = 0;
+        Transport[] transportArray = Transport.values();
         try {
             while (flag) {
-                System.out.println("Р’С‹Р±РµСЂРёС‚Рµ РІРёРґ С‚СЂР°РЅСЃРїРѕСЂС‚Р°:\nРњР°С€РёРЅР°\nР“СЂСѓР·РѕРІРёРє\nРЎР°РјРѕР»РµС‚\nРџРѕРµР·Рґ\nР›РѕРґРєР°\n");
-                String tr = sc.nextLine().toUpperCase();
-                Transport tp = Transport.valueOf(tr);
-                switch (tp) {
-                    case CAR:
-                        System.out.println("РђРІС‚РѕРјРѕР±РёР»СЊ РїРµСЂРµРѕР·РёС‚ Р»СЋРґРµР№");
-                        cost = 3;
+                int trNum = 0;
+                try {
+                    System.out.println("Выберите вид транспорта:\n1 - Машина\n2 - Грузовик\n3 - Самолет\n4 - Поезд\n5 - Лодка\n-1 - Выход из программы");
+                    trNum = dis.readInt();
+                    try {
+                        tp = transportArray[trNum - 1];
+                        System.out.println(tp.getMessage());
+                        if (tp != Transport.TRACK) {
+                            track = true;
+                        }
                         flag = false;
-                        break;
-                    case TRACK:
-                        System.out.println("Р“СЂСѓР·РѕРІРёРєРё РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅС‹ РґР»СЏ РїРµСЂРµРІРѕР·РєРё РіСЂСѓР·РѕРІ . Р’ РЅРёС… РїСѓС‚РµС€РµСЃС‚РІРѕРІР°С‚СЊ РЅРµРєРѕРјС„РѕСЂС‚РЅРѕ, РЅРѕ РµСЃР»Рё Р·Р°Р¶РјСѓСЂРёС‚СЊСЃСЏ, С‚Рѕ РјРѕР¶РЅРѕ. \nРќРѕ, Рє СЃРѕР¶Р°Р»РµРЅРёСЋ, РЅР°С€Р° РєРѕРјРїР°РЅРёСЏ С‚Р°РєРёС… СѓСЃР»СѓРі РЅРµ РїСЂРµРґРѕСЃС‚Р°РІР»СЏРµС‚. Р РµРєРѕРјРµРЅРґСѓРµРј РІР°Рј РѕР±СЂР°С‚РёС‚СЊ РІРЅРёРјР°РЅРёРµ РЅР° РґСЂСѓРіРѕР№ РІРёРґ С‚СЂР°РЅСЃРїРѕСЂС‚Р°");
-                        cost = 5;
-                        flag = true;
-                        break;
-                    case PLANE:
-                        System.out.println("РЎР°РјРѕР»РµС‚ Р»РµС‚РёС‚");
-                        cost = 4;
-                        flag = false;
-                        break;
-                    case TRAIN:
-                        System.out.println("РџРѕРµР·Рґ РґРІРёР¶РµС‚СЃСЏ РїРѕ СЂРµР»СЊСЃР°Рј");
-                        cost = 3;
-                        flag = false;
-                        break;
-                    case BOAT:
-                        cost = 6;
-                        System.out.println("Р›РѕРґРєР° РїР»С‹РІРµС‚ РїРѕ РІРѕРґРµ");
-                        flag = false;
-                        break;
-                    default:
-                        flag = false;
-                        break;
-                }
-                System.out.println("Р–РµР»Р°РµС‚Рµ Р»Рё РІС‹ СЂР°СЃС‡РёС‚Р°С‚СЊ СЃС‚РѕРёРјРѕСЃС‚СЊ РїРѕРµР·РґРєРё, РµСЃР»Рё РґР° РІРІРµРґРёС‚Рµ 1, РµСЃР»Рё РЅРµС‚ РІРІРµРґРёС‚Рµ Р»СЋР±СѓСЋ С†РёС„РєСѓ");
-                int ans = sc.nextInt();
-                switch (ans) {
-                    case 1:
-                        System.out.println("Р’РІРµРґРёС‚Рµ СЂР°СЃСЃС‚РѕСЏРЅРёРµ: ");
-                        int km = sc.nextInt();
-                        System.out.println("РЎС‚РѕРёРјРѕСЃС‚СЊ РїРѕРµР·РґРєРё: " + cost * km);
-                        break;
-                    default:
-                        break;
+                    } catch (IndexOutOfBoundsException e) {
+                        System.out.println("Выбрано некорректное значение, выберите из предложенных вариантов");
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Введено некорректное значение");
                 }
             }
-
+            if(track){
+                flag = true;
+                System.out.println("Желаете ли вы расчитать стоимость поездки ? 1 - да, -1 -  нет");
+                while (flag){
+                    int ans = 0;
+                    try{
+                        ans = dis.readInt();
+                        if (ans == 1){
+                            System.out.println("Введите расстояние: ");
+                            int km = dis.readInt();
+                            System.out.println("Стоимость поездки: " + tp.getCost() * km);
+                        }
+                        flag = false;
+                    }catch (NumberFormatException e){
+                        System.out.println("Введено некорректное значение");
+                    }
+                }
+            }
         }catch (Exception e){
-            System.out.println("РћС€РёР±РєР° " + e.getMessage());
+            System.out.println("Ошибка " + e.getMessage());
         }
 
     }
