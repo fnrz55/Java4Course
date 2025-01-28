@@ -6,11 +6,11 @@ public class Num1_2 {
         iOb = new Num1_1<Integer>( 88);
         iOb.showType();
         int v = iOb.getob();
-        System.out.println("Р·РЅР°С‡РµРЅРёРµ " + v);
+        System.out.println("значение " + v);
         System.out.println();
-        Num1_1<String> strOb = new Num1_1<String>("РўРµСЃС‚РёСЂРѕРІР°РЅРёРµ РѕР±РѕР±С‰РµРЅРёР№");
+        Num1_1<String> strOb = new Num1_1<String>("Тестирование обобщений");
         strOb.showType();
         String str = strOb.getob();
-        System.out.println("Р·РЅР°С‡РµРЅРёРµ " + str);
+        System.out.println("значение " + str);
     }
 }

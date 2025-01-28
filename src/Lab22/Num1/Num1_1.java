@@ -9,6 +9,6 @@ public class Num1_1<T> {
         return ob;
     }
     void showType() {
-        System.out.println("РўРёРї Рў - СЌС‚Рѕ " + ob.getClass().getName());
+        System.out.println("Тип Т - это " + ob.getClass().getName());
     }
 }

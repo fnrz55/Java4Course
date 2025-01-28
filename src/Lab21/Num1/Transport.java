@@ -7,7 +7,8 @@ public enum Transport {
             "обратить внимание на другой вид транспорта"),
     PLANE(4, "Самолет летит"),
     TRAIN(3, "Поезд движется по рельсам"),
-    BOAT(6, "Лодка плывет по воде");
+    BOAT(6, "Лодка плывет по воде"),
+    BUS(2, "Автобус");
     private int cost;
     private String message;
 
