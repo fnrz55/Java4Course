@@ -1,89 +1,78 @@
 package Lab21.Num2;
-import java.util.Timer;
-enum TrafficLightColor{RED(12000), GREEN(10000), YELLOW(2000);
-    private int delay;
-    TrafficLightColor(int s) {delay = s;}
-    int getDelay() {return delay;}}
+
 //Имитация автоматизированного светофора
 public class TrafficLightSimulator implements Runnable{
-    public TrafficLightColor tic;//текущий цвет светофора
-    boolean stop = false;//для остановки иммитации установить в true
+    private TrafficLightColor[] colors = TrafficLightColor.values();
+    private TrafficLightColor color;
+    public int colorIdx;
+    boolean traficLightOff = false;
+    boolean stop = false;
     int counter = 11;
-    boolean changed = false;//true, если светофор переключился
-    TrafficLightSimulator(TrafficLightColor init) {
-        tic = init;
+    boolean changed = false;
+    TrafficLightSimulator(int init) {
+        colorIdx = init;
     }
-    TrafficLightSimulator() {tic = TrafficLightColor.RED;}
-    //запуск иммитации автоматизированного светофора
+    TrafficLightSimulator() {colorIdx = 0;}
     public void run(){
         while (!stop){
             try {
-                switch (tic){
-                    case GREEN:
-                        Thread.sleep(TrafficLightColor.GREEN.getDelay());//зеленый на 10 секунд
-                        break;
-                    case YELLOW:
-                        Thread.sleep(TrafficLightColor.YELLOW.getDelay());//желтый на 2 секунды
-                        break;
-                    case RED:
-                        Thread.sleep(TrafficLightColor.RED.getDelay());//красный на 12 секунды
-                        break;
-                }
+                timer(colors[colorIdx]);
             }catch (InterruptedException exc) {
                 System.out.println(exc);
             }
             changeColor();
         }
     }
-    //переключатель цвета светофора
+
     synchronized void changeColor(){
-        switch (tic){
-            case RED:
-                tic = TrafficLightColor.GREEN;
-                break;
-            case YELLOW:
-                tic = TrafficLightColor.RED;
-                break;
-            case GREEN:
-                tic = TrafficLightColor.YELLOW;
+        if(colorIdx == colors.length-1){
+            colorIdx = 0;
+            changed = true;
+            return;
         }
-        changed = true;
-        notify();//уведомить о переключении цвета светофора
+        if(traficLightOff){
+           colorIdx = 1;
+            changed = true;
+            notify();
+        }else {
+            colorIdx++;
+            changed = true;
+            notify();
+        }
     }
-    //ожидание переключения цвета светофора
+
     synchronized void waitForChange(){
         try{
             while(!changed)
-                wait(); //ожидать переключение цвета светофора
+                wait();
             changed = false;
         } catch(InterruptedException e){
             System.out.println(e);
         }
     }
     synchronized void timer(TrafficLightColor col) throws InterruptedException {
+        System.out.println(col.getName());
         int sec = col.getDelay()/1000;
         while (sec != 0){
             System.out.println(sec);
             sec--;
             wait(1000);
             counter++;
-            if (counter == 24){
-                System.out.println("YELLOW \nмигает");
+            if (counter == 60){
+                System.out.println("13:00 Светофор выключается");
+                traficLightOff = true;
                 wait(1000);
-//                changed = true;
                 counter = 0;
-                tic = TrafficLightColor.GREEN;
+                color = colors[colorIdx];
                 changed = true;
                 break;
             }
         }
     }
 
-    //Возврат текущего цвета
     synchronized TrafficLightColor getColor(){
-        return tic;
+        return colors[colorIdx];
     }
-    //Прекращение имитации светофора
     synchronized void cancel(){
         stop = true;
     }

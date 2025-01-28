@@ -8,6 +8,7 @@
     <file url="file://$PROJECT_DIR$/src/Lab20/Num2Cl.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/Lab20/Num3.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/Lab20/Num3Cl.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/Lab20/Num4.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/Lab20/Num7.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/Lab20/Num7Cl.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/Lab20/Num8.java" charset="windows-1251" />
@@ -16,7 +17,12 @@
     <file url="file://$PROJECT_DIR$/src/Lab20/Num9Cl.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/Lab20/Num9Th.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/Lab21/Num1/Example1.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/Lab21/Num1/Example1_2.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/Lab21/Num1/Transport.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/Lab21/Num2/TrafficLightColor.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/Lab21/Num2/TrafficLightDemo.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/Lab21/Num2/TrafficLightSimulator.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/Lab21/Num3/Example3_2.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/Lab21/Num3/Example3_3.java" charset="windows-1251" />
   </component>
 </project>

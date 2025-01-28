@@ -2,7 +2,7 @@ package Lab20;
 
 public class Num4 {
     public static void main(String[] args) {
-    	System.out.println("РћСЃРЅРѕРІРЅРѕР№ РїРѕС‚РѕРє Р·Р°РїСѓС‰РµРЅ");
+    	System.out.println("Основной поток запущен");
         Num3Cl mt1 = new Num3Cl("#child1");
         Num3Cl mt2 = new Num3Cl("#child2");
         Num3Cl mt3 = new Num3Cl("#child3");
@@ -11,10 +11,10 @@ public class Num4 {
             try {
                 Thread.sleep(100);
             }catch (InterruptedException e ){
-                System.out.println("Р“Р»Р°РІРЅС‹Р№ РїРѕС‚РѕРє РїСЂРёРѕСЃС‚Р°РЅРѕРІР»РµРЅ");
+                System.out.println("Главный поток приостановлен");
             }
         }
-        System.out.println("Р“Р»Р°РІРЅС‹Р№ РїРѕС‚РѕРє Р·Р°РєРѕРЅС‡РёР» РёСЃРїРѕР»РЅРµРЅРёРµ");
+        System.out.println("Главный поток закончил исполнение");
     }
 
 }

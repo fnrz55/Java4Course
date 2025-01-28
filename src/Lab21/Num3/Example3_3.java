@@ -5,14 +5,14 @@ public class Example3_3 {
         Integer iOb, iOb2;
         int i;
         iOb = 99;
-        System.out.println("РСЃС…РѕРґРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ iOb: " + iOb);
+        System.out.println("Исходное значение iOb: " + iOb);
         ++iOb;
-        System.out.println("РџРѕСЃР»Рµ ++iOb: " + iOb);
+        System.out.println("После ++iOb: " + iOb);
         iOb += 10;
-        System.out.println("РџРѕСЃР»Рµ iOb += 10: " + iOb);
+        System.out.println("После iOb += 10: " + iOb);
         iOb2 = iOb + (iOb/3);
-        System.out.println("iOb2 РїРѕСЃР»Рµ РІС‹С‡РёСЃР»РµРЅРёРµ РІС‹СЂР°Р¶РµРЅРёРµ: " + iOb2);
+        System.out.println("iOb2 после вычисление выражение: " + iOb2);
         i = iOb + (iOb/3);
-        System.out.println("i РїРѕСЃР»Рµ РІС‹С‡РёСЃР»РµРЅРёСЏ РІС‹СЂР°Р¶РµРЅРёСЏ: " + i);
+        System.out.println("i после вычисления выражения: " + i);
     }
 }
