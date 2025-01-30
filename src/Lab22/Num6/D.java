@@ -1,4 +1,4 @@
 package Lab22.Num6;
 
-public class D{
+public class D extends A{
 }

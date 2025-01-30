@@ -16,7 +16,7 @@ public class Num5_1 <T extends Number> {
             return true;
         return false;
     }
-        //Разные типы, а передается один
+//        Разные типы, а передается один
 //    boolean absEqual(Num5_1<T> ob){
 //        if(Math.abs(num.doubleValue()) == Math.abs(ob.num.doubleValue()))
 //            return true;
