@@ -19,7 +19,7 @@ public class Num6_1 {
         test(w3);
     }
 
-    static void test(Gen<?> o) {
+    static void test(Gen<? extends A> o) {
         System.out.println("11");
     }
 }

@@ -6,8 +6,8 @@ public class Num2_1 <T, V> {
         ob1 = o1; ob2 = o2;
     }
     void showTypes() {
-        System.out.println("РўРёРї T - СЌС‚Рѕ" + ob1.getClass().getName());
-        System.out.println("РўРёРї V - СЌС‚Рѕ" + ob2.getClass().getName());
+        System.out.println("Тип T - это" + ob1.getClass().getName());
+        System.out.println("Тип V - это" + ob2.getClass().getName());
     }
     T getob1(){ return  ob1;}
     V getob2() {return  ob2;}
